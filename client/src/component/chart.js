@@ -257,30 +257,7 @@ function Chart() {
             setData2(xy);
         }
          else if(value=="3"){
-            var epsilon=0.0000001;
-            var check=1;
-            var x0temp=parseFloat(x0);
-            var i=0;
-            var error=[];
-            var xtemp=[];
-            while(true){
-                if(check<epsilon){
-                    break;
-                }
-                var x1 = toEqual(x0temp,equation);
-                var check = Math.abs((x1-x0temp)/x1);
-                error.push(check.toFixed(8));
-                xtemp.push(x0temp.toFixed(8));
-                
-                var x0temp = x1;
-            }
-            const xy = error.map((id,index)=>{
-                let xyObject = {};
-                xyObject.x = index+1;
-                xyObject.y = parseFloat(error[index]);
-                return xyObject;
-            })
-            setData2(xy);
+            
         }
         else if(value=="4"){
             const error=[];
