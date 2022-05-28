@@ -1,10 +1,9 @@
 import React from 'react';
 import { useRef} from 'react';
-import CanvasJSReact from './canvasjs-3.4.13/canvasjs.react'
+import CanvasJSReact from './canvas/canvasjs.react'
 import {useState,useEffect} from 'react';
 import { makeSharedVirtualKeyboard } from "mathlive";
 import MathView from "react-math-view";
-import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
