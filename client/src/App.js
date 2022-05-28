@@ -4,7 +4,7 @@ import Hello from './component/hello'
 function App() {
   return (
     <div>
-      <Chart/>
+      <Hello/>
     </div>
       
     
