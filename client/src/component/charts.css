@@ -1,0 +1,74 @@
+.graph{
+    width:75%;
+    margin: 0 auto;
+}
+.tabpanel{
+    padding-top:0;
+
+}
+.form{
+    margin: auto;
+    width: 50%;
+}
+
+.button-4 {
+  appearance: none;
+  background-color : #FAFBFC;
+  border : 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.buttonform{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin-top:20px;  
+}
+.inputform{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin-top:20px;    
+}
+.inputEqform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.inputX{
+    height: 39px;
+    padding:0px;
+    border:1px solid;
+    margin-left: 20px;
+    margin-right:30px;
+}
+.inputEq{
+    width: 45%;
+    border: 1px solid;
+    margin-left: 10px;
+    margin-right: 50px;
+    
+}
+h1 {
+    font-size: 16px;
+}
