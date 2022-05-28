@@ -2,7 +2,7 @@
 
 function hello(){
     return (
-        <h>Hello</h>
+        <h>1</h>
     )
 }
 export default hello
