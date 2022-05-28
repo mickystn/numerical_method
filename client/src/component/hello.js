@@ -1,8 +1,8 @@
-import Chart from '../component/chart'
+//import Chart from '../component/chart'
 
 function hello(){
     return (
-        <Chart/>
+        <h>Hello</h>
     )
 }
 export default hello

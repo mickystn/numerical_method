@@ -174,7 +174,134 @@ function Chart() {
         var equation = mvRef.current.value;
         var xLtemp =xL;
         var xRtemp = xR;
-       
+        if(value=="1"){
+            var error=0.0000001;
+            var check = 1;
+            xLtemp=parseFloat(xLtemp);
+            xRtemp=parseFloat(xRtemp);
+            var oldxL=xLtemp;
+            var oldxR=xRtemp;
+            var x=[];
+            var y=[];
+            while (check >= error) {
+                // xL , xR
+                var fxL = toEqual(xLtemp,equation);
+                var fxR = toEqual(xRtemp,equation);
+                //xM
+                var xM = (xLtemp+xRtemp)/2;
+                var fxM = toEqual(xM,equation);
+                var testCase = fxM*fxR;
+                
+                if(testCase>0){ //CaseA
+                    oldxR=xRtemp;
+                    xRtemp=xM;
+                    check = Math.abs((xRtemp-oldxR)/xRtemp);
+                }else if(testCase<0){ //CaseB
+                    oldxL=xLtemp;
+                    xLtemp=xM;
+                    check = Math.abs((xLtemp-oldxL)/xLtemp);
+                }else{
+                    x.push(xM.toFixed(8));
+                    y.push(check.toFixed(8));
+                    break;
+                }
+                x.push(xM.toFixed(8));
+                y.push(check.toFixed(8));
+            }
+            const xy = x.map((id,index)=>{
+                let xyObject = {};
+                xyObject.x = index+1;
+                xyObject.y = parseFloat(y[index]);
+                xyObject.indexLabel =  "x = "+ x[index];
+                return xyObject;
+            })
+            setData2(xy);
+        }
+        else if(value=="2"){
+            var error=0.0000001;
+            var check = 1;
+            xLtemp=parseFloat(xLtemp);
+            xRtemp=parseFloat(xRtemp);
+            var oldxL=xLtemp;
+            var oldxR=xRtemp;
+            var x=[];
+            var y=[];
+            while (check >= error) {
+                var fxL = toEqual(xLtemp,equation);
+                var fxR= toEqual(xRtemp,equation);
+                var x1=(xLtemp*fxR)-(xRtemp*fxL);
+                var x1 = x1/(fxL-fxR);
+                
+                var fx1 = toEqual(x1,equation);
+                console.log(fx1);
+                var testCase = fx1*fxR;
+                if(testCase>0){ //CaseA
+                    oldxR=xRtemp;
+                    xRtemp=x1;
+                    check = Math.abs((xRtemp-oldxR)/xRtemp);
+                }else if(testCase<0){ //CaseB
+                    oldxL=xLtemp;
+                    xLtemp=x1;
+                    check = Math.abs((xLtemp-oldxL)/xLtemp);
+                }
+                x.push(x1.toFixed(8));
+                y.push(check.toFixed(8));
+            }
+            const xy = x.map((id,index)=>{
+                let xyObject = {};
+                xyObject.x = index+1;
+                xyObject.y = parseFloat(y[index]);
+                xyObject.xvalue = parseFloat(x[index]);
+                return xyObject;
+            })
+            setData2(xy);
+        }
+         else if(value=="3"){
+            var epsilon=0.0000001;
+            var check=1;
+            var x0temp=parseFloat(x0);
+            var i=0;
+            var error=[];
+            var xtemp=[];
+            while(true){
+                if(check<epsilon){
+                    break;
+                }
+                var x1 = toEqual(x0temp,equation);
+                var check = Math.abs((x1-x0temp)/x1);
+                error.push(check.toFixed(8));
+                xtemp.push(x0temp.toFixed(8));
+                
+                var x0temp = x1;
+            }
+            const xy = error.map((id,index)=>{
+                let xyObject = {};
+                xyObject.x = index+1;
+                xyObject.y = parseFloat(error[index]);
+                return xyObject;
+            })
+            setData2(xy);
+        }
+        else if(value=="4"){
+            const error=[];
+            let xtemp=xnewton;
+            let epsilon = 0.000001 ,check= 1;
+            while(check>=epsilon) {
+                let fx = toEqual(xtemp,equation);
+                let fxdif =  derivative(equation, 'x').evaluate({x: xtemp});
+                let newX = xtemp-(fx/fxdif);
+                check = Math.abs((newX-xtemp))/newX;
+                xtemp = newX;
+                error.push(check.toFixed(8))
+            }
+            const xy = error.map((id,index)=>{
+                let xyObject = {};
+                xyObject.x = index+1;
+                xyObject.y = parseFloat(error[index]);
+                return xyObject;
+            })
+            setData2(xy);
+        }
     }
 
     function setx(evt){
