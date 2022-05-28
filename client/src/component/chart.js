@@ -15,6 +15,8 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 
 function Chart() {
+    return (<h>Hello</h>);
+    /*
     const [data,setData] = useState();
     const [data2,setData2]=useState();
     const [value,setValue]=useState('1');
@@ -575,7 +577,7 @@ function Chart() {
             </TabContext>
             
         </div>
-    );
+    );*/
 }
 
 export default Chart;
