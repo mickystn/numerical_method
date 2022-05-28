@@ -23,9 +23,9 @@ jobs:
         working-directory: ./client
         run : npm i --force
 
-      - name: npm run build
+      - name: npm start
         working-directory: ./client
-        run : npm run build
+        run : npm start
 
       - name: npm test
         working-directory: ./client
