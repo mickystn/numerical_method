@@ -15,8 +15,6 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 
 function Chart() {
-    return (<h>Hello</h>);
-    /*
     const [data,setData] = useState();
     const [data2,setData2]=useState();
     const [value,setValue]=useState('1');
@@ -456,7 +454,6 @@ function Chart() {
                 <TabList onChange={handleTabTopicChange}>
                     <Tab label="Home" value="Home"/>
                     <Tab label="Root of Equation" value="RoE" />
-                    <Tab label="Linear Algebra" value="LA" />
                 </TabList>
                 <TabPanel class="tabpanel" value="Home">
 
@@ -556,28 +553,10 @@ function Chart() {
                         </TabPanel>
                     </TabContext>
                 </TabPanel>
-                <TabPanel class="tabpanel" value="LA">
-                    <TabContext value={value}>
-                        <TabList onChange={handleTabChange}>
-                            <Tab label="Cramer's Rule" value="5" />
-                            <Tab label="Glauss Elimination" value="6" />
-                            <Tab label="Gauss-Jordan" value="7" />
-                            <Tab label="LU Decomposition" value="8" />
-                            <Tab label="Jacobi Iteration" value="9" />
-                            <Tab label="Gauss-Seidel Iteration" value="10"/>
-                        </TabList>
-                        <TabPanel value="5"></TabPanel>
-                        <TabPanel value="6"></TabPanel>
-                        <TabPanel value="7"></TabPanel>
-                        <TabPanel value="8"></TabPanel>
-                        <TabPanel value="9"></TabPanel>
-                        <TabPanel value="10"></TabPanel>
-                    </TabContext>
-                </TabPanel>
             </TabContext>
             
         </div>
-    );*/
+    );
 }
 
 export default Chart;
