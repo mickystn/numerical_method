@@ -30,7 +30,7 @@ const swaggerOptions = {
         bearerAuth: []
       }],
     },
-    apis: ["./server.js"]
+    apis: ["./index.js"]
   };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
