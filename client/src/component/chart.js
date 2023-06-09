@@ -8,10 +8,11 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import {evaluate,derivative} from 'mathjs';
+import {evaluate,derivative, log} from 'mathjs';
 import './charts.css';
-import axios from 'axios';
+import Axios from 'axios';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
 
 
 function Chart() {
@@ -28,16 +29,13 @@ function Chart() {
 
     const initialState=[{}]
 
+    useEffect(()=>{
+        Axios.get("http://localhost:8121/test").then((res)=>{
+                console.log(res.data);
+            }
+        )
+    },[])
 
-    const token="eyJhbGciOiJIUzI1NiJ9.cmVx._CjnNi235mD7aRkNQb400UYUfPMCVB2NFKasNiKZIMs";
-
-    const authAxios = axios.create({
-        baseUrl: "http://localhost:8080/data/1",
-        headers: {
-            Authorization: `Bearer ${token}`, 
-        }
-    })
-    
     function latex_to_js(input) {
 
         var init, fraction, square_root, nth_root, nth_power, convert_others;
@@ -139,20 +137,17 @@ function Chart() {
         
     };
     function callApi(){
-        reqData(value).then(response=> setData(response.data));
-    }   
-    function reqData(val){
-        if(val=="1"){
-            return authAxios.get('http://localhost:8080/data/1');
+        if(value==1){
+            Axios.get("http://localhost:8080/data/1").then((res)=>{setData(res.data);})
         }
-        else if(val=="2"){
-            return fetch('http://localhost:8080/data/2').then(res=>res.json());
+        else if(value==2){
+            Axios.get("http://localhost:8080/data/2").then((res)=>{setData(res.data);})
         }
-        else if(val=="3"){
-            return fetch('http://localhost:8080/data/3').then(res=>res.json());
+        else if(value==3){
+            Axios.get("http://localhost:8080/data/3").then((res)=>{setData(res.data);})
         }
-        else if(val=="4"){
-            return fetch('http://localhost:8080/data/4').then(res=>res.json());
+        else if(value==4){
+            Axios.get("http://localhost:8080/data/4").then((res)=>{setData(res.data);})
         }
     }
     function clearState(){
@@ -317,11 +312,9 @@ function Chart() {
         setxR(evt.target.value);
     }
     useEffect(()=>{
-        //reqData(value).then(data=> setData(data));// set data from example
         makeSharedVirtualKeyboard({
             virtualKeyboardMode: "onfocus"
           });
-       // mvRef.current.setValue("$x$", { suppressChangeNotifications: true });
     },[]);
 
     const options1 = {
