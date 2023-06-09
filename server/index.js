@@ -15,19 +15,19 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/data/1',(req, res) => {
-    res.status(200).json(xy1);
+    res.send(xy1);
 })
 app.get('/data/2',(req, res) => {
-    res.status(200).json(xy2);
+    res.send(xy2);
 })
 app.get('/data/3',(req, res) => {
-    res.status(200).json(errors);
+    res.send(error);
 })
 app.get('/data/4',(req, res) => {
-    res.status(200).json(xy4);
+    res.send(xy4);
 })
 app.get('/data/5',(req, res) => {
-    res.status(200).json(gauss);
+    res.send(gauss);
 })
 
 
