@@ -16,7 +16,7 @@ app.get("/data/2",(req,res)=>{
   res.send(xy2);
 })
 app.get("/data/3",(req,res)=>{
-  res.send(error);
+  res.send(errors);
 })
 app.get("/data/4",(req,res)=>{
   res.send(xy4);
