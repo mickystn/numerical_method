@@ -29,12 +29,6 @@ function Chart() {
 
     const initialState=[{}]
 
-    useEffect(()=>{
-        Axios.get("http://localhost:8121/test").then((res)=>{
-                console.log(res.data);
-            }
-        )
-    },[])
 
     function latex_to_js(input) {
 
@@ -138,16 +132,16 @@ function Chart() {
     };
     function callApi(){
         if(value==1){
-            Axios.get("http://localhost:8080/data/1").then((res)=>{setData(res.data);})
+            Axios.get("https://numerical-method.vercel.app/data/1").then((res)=>{setData(res.data);})
         }
         else if(value==2){
-            Axios.get("http://localhost:8080/data/2").then((res)=>{setData(res.data);})
+            Axios.get("https://numerical-method.vercel.app/data/2").then((res)=>{setData(res.data);})
         }
         else if(value==3){
-            Axios.get("http://localhost:8080/data/3").then((res)=>{setData(res.data);})
+            Axios.get("https://numerical-method.vercel.app/data/3").then((res)=>{setData(res.data);})
         }
         else if(value==4){
-            Axios.get("http://localhost:8080/data/4").then((res)=>{setData(res.data);})
+            Axios.get("https://numerical-method.vercel.app/data/4").then((res)=>{setData(res.data);})
         }
     }
     function clearState(){
